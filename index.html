@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso Restringido</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: url('torre_exterior.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Courier New', monospace;
+      color: #00FFAA;
+      background-color: black;
+    }
+    .login-box {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 40px;
+      border: 1px solid #00FFAA;
+      text-align: center;
+    }
+    input[type="password"] {
+      padding: 10px;
+      margin-top: 20px;
+      font-size: 18px;
+      border: none;
+      width: 100%;
+    }
+    input[type="submit"] {
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 18px;
+      width: 100%;
+      background-color: #00FFAA;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form class="login-box" action="servidor.html" method="GET" onsubmit="return checkPassword()">
+    <h1>ACCESO RESTRINGIDO</h1>
+    <p>Introduce la clave</p>
+    <input type="password" id="clave" placeholder="********" />
+    <input type="submit" value="Conectar" />
+  </form>
+
+  <script>
+    function checkPassword() {
+      const clave = document.getElementById('clave').value;
+      if (clave === "1234") {
+        return true;
+      } else {
+        alert("Clave incorrecta. La Torre te está observando.");
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
