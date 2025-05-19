@@ -58,7 +58,13 @@
       if (clave === "1234") {
         return true;
       } else {
-        alert("Clave incorrecta. La Torre te está observando.");
+        document.body.style.backgroundImage = "url('error.png')";
+        alert("   Clave incorrecta "+"\n" +"  La Torre te está observando.");
+        alert("Procura no errar de nuevo, la torre no es benévola.");
+        document.body.style.borderColor = "red";
+        document.body.style.color = "red";
+        document.querySelector('.login-box').style.borderColor = "red";
+        document.querySelector('input[type="submit"]').style.backgroundColor = "red";
         return false;
       }
     }
