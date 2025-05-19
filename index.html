@@ -52,6 +52,8 @@
     <input type="submit" value="Conectar" />
   </form>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script>
     function checkPassword() {
       const clave = document.getElementById('clave').value;
@@ -59,8 +61,17 @@
         return true;
       } else {
         document.body.style.backgroundImage = "url('error.png')";
-        alert("   Clave incorrecta "+"\n" +"  La Torre te está observando.");
-        alert("Procura no errar de nuevo, la torre no es benévola.");
+
+        Swal.fire({
+          title: 'Clave incorrecta... La torre te observa',
+          text: 'La Torre ha detectado una intrusión' + '\n',
+          text: 'Procura no errar de nuevo, la torre no es benévola.',
+          icon: 'error',
+          background: '#1a1a1a',
+          color: 'red',
+          confirmButtonColor: 'red'
+        });
+        
         document.body.style.borderColor = "red";
         document.body.style.color = "red";
         document.querySelector('.login-box').style.borderColor = "red";
